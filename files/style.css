@@ -42,16 +42,23 @@ body{
     color: var(--text-color);
 }
 header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 20px 10%;
-    background: #292e337a;
+    border-bottom: 1px solid transparent;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    position: fixed;
-    z-index: 10;
+    z-index: 1000;
+}
+header.stricky{
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--second-bg-color);
+    padding: 12px 10%;
 }
 .logo{
     font-size: 26px;
@@ -80,21 +87,24 @@ span{
                 0 0 100px rgba(18, 247, 255, 0.6),
                 0 0 150px rgba(18, 247, 255, 0.6);
 }
+
+.navlist a.active{
+    color: var(--hover-color);
+}
+
 #menu-icon{
     font-size: 1.8rem;
     z-index: 10001;
     cursor: pointer;
+    padding: 8px;
     margin-left: 25px;
     background: var(--hover-color);
-    border-radius: 3px;
+    border-radius: 5px;
     color: var(--second-bg-color);
     display: none;
 }
 section{
     padding: 100px 10%;
-}
-.home img{
-    width: 200px;
 }
 .home{
     min-height: 100vh;
@@ -699,4 +709,102 @@ footer a{
 footer a i{
     font-size: 1rem;
     color: var(--second-bg-color);
+}
+
+
+
+@media (max-width:991px){
+    header,
+    header.stricky{
+        padding: 15px 5%;
+    }
+    footer{
+        padding: 15px 5%;
+    }
+    section{
+        padding: 50px 5%;
+    }
+    .navlist a{
+        padding: 8px 15px;
+    }
+    :root{
+        --big-font : 2.2rem;
+        --normal-font : 1.8rem;
+        --mon-box-shadow : 0 0 .8rem #12f7ff;
+        --h2-font : 3rem;
+    }
+    .home-content{
+        margin-top: 5rem;
+    }
+    .social-icons{
+        margin-top: 2rem;
+    }
+}  
+@media (max-width:768px){
+    #menu-icon{
+        display: block;
+        transition: all .4s ease;
+    }
+    #menu-icon.fa-times{
+        transform: rotate(-180deg);
+    }
+    .navlist{
+        display: flex;
+        position: absolute;
+        top: -1000px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        padding: 0 5%;
+        transition: all .45s ease;
+    }
+    .navlist a{
+        display: block;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+    }
+    .navlist.open{
+         top: 100%;
+    }
+    .home{
+        grid-template-columns: 1fr;
+    }
+    .home-image{
+        margin-bottom: 5rem;
+    }
+    .about{
+        flex-direction: column-reverse;
+    }
+    .skill-main{
+        grid-template-columns: 1fr;
+    }
+    .fillter-buttons{
+        margin: 2.5rem 0;
+    }
+    footer p{
+        font-size: .9rem
+    }
+}
+@media (max-width:420px){
+    html{
+        font-size: 80%
+    }
+    footer p{
+        font-size: .6rem
+    }
+    .fillter-buttons .btn{
+        font-size: .8rem;
+
+    }
+    .img-about{
+        width: 300px;
+    }
+    .info-about1, .info-about2, .info-about3{
+        display: none;
+    }
+    .img-about p{
+        font-size: 1rem;
+    }
 }

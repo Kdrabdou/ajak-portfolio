@@ -34,3 +34,42 @@ let changeText = () =>{
 
 changeText();
 setInterval(changeText, 3000);
+
+
+let menuLi = document.querySelectorAll('header ul li a');
+let section = document.querySelectorAll('section');
+function activerMenu(){
+    let len = section.length;
+    while (--len && window.scrollY + 97 < section[len].offsetTop) {
+        menuLi.forEach(sec => sec.classList.remove("active"));
+        menuLi[len].classList.add("active");
+    }
+}
+activerMenu();
+window.addEventListener("scroll", activerMenu);
+
+
+const header = document.querySelector("header");
+window.addEventListener("scroll", function(){
+    header.classList.toggle("stricky", this.window.scrollY > 50);
+});
+
+
+let menuIcoon = document.querySelector("#menu-icon");
+let navlist = document.querySelector(".navlist");
+
+menuIcoon.onclick = () =>{
+    if(menuIcoon.classList.contains("fa-bars")){
+        menuIcoon.classList.remove("fa-bars");
+        menuIcoon.classList.add("fa-times");
+    }else{
+        menuIcoon.classList.add("fa-bars");
+        menuIcoon.classList.remove("fa-times");
+    }
+    navlist.classList.toggle("open");
+}
+window.onscroll = () =>{
+    menuIcoon.classList.remove("fa-times");
+    menuIcoon.classList.add("fa-bars");
+    navlist.classList.remove("open");
+}
