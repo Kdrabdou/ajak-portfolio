@@ -72,9 +72,24 @@ span{
     display: flex;
 }
 .navlist a{
+    display: inline-flex;
     color: var(--text-color);
     font-weight: 500;
     padding: 10px 20px;
+    animation: slideAnimation 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+    opacity: 0;
+}
+@keyframes slideAnimation{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+
+    }
 }
 .navlist a:hover{
     color: var(--hover-color);
@@ -96,10 +111,10 @@ span{
     font-size: 1.8rem;
     z-index: 10001;
     cursor: pointer;
-    padding: 8px;
+    padding: 1px 3px;
     margin-left: 25px;
     background: var(--hover-color);
-    border-radius: 5px;
+    border-radius: 3px;
     color: var(--second-bg-color);
     display: none;
 }
@@ -222,16 +237,17 @@ section{
     background: var(--hover-color);
 }
 .social-icons{
-    margin-top: 8rem;
+    margin-top: 6rem;
     display: flex;
     justify-content: space-between;
-    width: 220px;
+    width: 250px;
     height: 40px;
 }
 .social-icons a{
     display: inline-flex;
     width: 50px;
     height: 100%;
+    margin: 0 5px;
     justify-content: center;
     align-items: center;
     background: var(--bg-color);
@@ -239,7 +255,9 @@ section{
     border: 2px solid var(--hover-color);
     transition: .6s;
     box-shadow: 0 0 0.3rem #12f7ff;
-    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -254,15 +272,15 @@ section{
     content: "";
     position: absolute;
     left: 0;
-    top: 0;
-    width: 0;
+    bottom: -100%;
+    width: 100%;
     height: 100%;
     background: var(--hover-color);
     transition: .6s;
     z-index: -1;
 }
 .social-icons a:hover::before{
-    width: 100%;
+    bottom: 0;
 }
 .home-image{
     position: relative;
@@ -551,25 +569,38 @@ section{
 .circle{
     width: 100%;
     height: 120px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #fff;
 }
 .circle .points{
-    width: 5px;
+    width: 2px;
     height: 10px;
     background-color: var(--bg-color);
     position: absolute;
     border-radius: 3px;
-    transform: rotate(calc(var(--i)*120deg)) translateY(-45deg);
+    transform: rotate(calc(var(--i)*var(--rot))) translateY(-45px);
 }
-
+.points.marked{
+    animation: glow 0.04s linear forwards;
+    animation-delay: calc(var(--i)*0.05s);
+}
+@keyframes glow{
+    0%{
+        background: var(--bg-color);
+        box-shadow: none;
+    }
+    100%{
+        background: var(--hover-color);
+        box-shadow: var(--mon-box-shadow);
+    }
+}
 
 .fillter-buttons{
     margin: 2rem;
     text-align: center;
 }
-.fillter-buttons .btn{
+.fillter-buttons .button{
     background: none;
     outline: none;
     border: none;
@@ -580,7 +611,14 @@ section{
     margin-left: 1.3rem;
     color: var(--text-color);
 }
-.fillter-buttons .btn:hover{
+.fillter-buttons .bb{
+    color: var(--text-color);
+}
+.fillter-buttons .bb:hover{
+    color: var(--hover-color);
+}
+
+.fillter-buttons .button:hover{
     color: var(--hover-color);
 }
 .portfolio-gallery{
@@ -648,6 +686,10 @@ section{
     border: 1px solid var(--hover-color);
     outline: 2px solid #fff;
 }
+.port-content a i{
+    font-size: 1.3rem;
+    color: var(--second-bg-color);
+}
 .port-box:hover .port-content{
     opacity: 1;
 }
@@ -672,8 +714,18 @@ section{
     background: var(--bg-color);
     margin-bottom: .8rem;
     border: none;
+    font-weight: 600;
+    letter-spacing: .8px;
     border-radius: 5px;
+    outline: 2px solid transparent;
     padding: .7rem;
+}
+.contact form input:focus,
+.contact form textarea:focus{
+    outline: 2px solid var(--hover-color);
+}
+.contact form input{
+    padding: .9rem;
 }
 .contact form textarea{
     resize: none;
@@ -711,6 +763,26 @@ footer a i{
     color: var(--second-bg-color);
 }
 
+.scroll-scale{
+    opacity: 0;
+    transform: scale(.9);
+    transition: all 2s;
+}
+.scroll-bottom{
+    opacity: 0;
+    transform: translateY(300px);
+    transition: 3s;
+}
+.scroll-top{
+    opacity: 0;
+    transform: translateY(-300px);
+    transition: 3s;
+}
+.show-items{
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 
 @media (max-width:991px){
@@ -723,6 +795,9 @@ footer a i{
     }
     section{
         padding: 50px 5%;
+    }
+    .home{
+        overflow-x: hidden;
     }
     .navlist a{
         padding: 8px 15px;
@@ -747,6 +822,11 @@ footer a i{
     }
     #menu-icon.fa-times{
         transform: rotate(-180deg);
+    }
+    .home-image{
+        display: flex;
+        align-items: center;
+        margin-left: -10px;
     }
     .navlist{
         display: flex;
@@ -792,9 +872,9 @@ footer a i{
         font-size: 80%
     }
     footer p{
-        font-size: .6rem
+        font-size: 1rem
     }
-    .fillter-buttons .btn{
+    .fillter-buttons .button{
         font-size: .8rem;
 
     }
