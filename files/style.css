@@ -109,7 +109,6 @@ span{
 }
 .navlist a:hover{
     color: var(--hover-color);
-    text-shadow: var(--mon-box-shadow);
 }
 
 .navlist a.active{
@@ -145,6 +144,10 @@ section{
 .home-content h1{
     font-size: var(--big-font);
     font-weight: 700;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: linear-gradient(to right, #fff, var(--second-bg-color));
+    background-clip: text;
+    color: transparent;
 }
 .change-text{
     font-size: 1.5rem;
@@ -315,7 +318,7 @@ section{
     border: 10px dotted var(--hover-color);
     border-radius: 50%;
     animation: cercle 3s forwards infinite;
-    animation-duration: 60s;
+    animation-duration: 30s;
     z-index: -1;
 }
 @keyframes cercle{
@@ -343,6 +346,20 @@ section{
 .about .img-about img{
     max-width: 400px;
     height: auto;
+    border: 2px solid var(--hover-color);
+    border-radius: 30px;
+    animation: profile2 3s infinite;
+}
+@keyframes profile2{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: rotateY(1);
+    }
 }
 .about-content span{
     color: #fdfdfd;
@@ -832,6 +849,9 @@ footer a i{
     section{
         padding: 50px 5%;
     }
+    .home-image .img{
+        margin-left: 5rem;
+    }
     .home{
         overflow-x: hidden;
     }
@@ -863,6 +883,9 @@ footer a i{
         display: flex;
         align-items: center;
         margin-left: -10px;
+    }
+    .home-image .img{
+        margin-left: 0;
     }
     .navlist{
         display: flex;
