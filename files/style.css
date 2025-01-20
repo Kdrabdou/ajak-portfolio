@@ -276,6 +276,7 @@ section{
 }
 .social-icons a:hover{
     color: var(--bg-color);
+    transform: rotate(360deg);
 }
 .social-icons a::before{
     content: "";
@@ -301,8 +302,33 @@ section{
     width: 100%;
     max-width: 350px;
     height: auto;
+    /* border: 10px dotted var(--bg-color); */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--mon-box-shadow);
 }
-
+.img-box .img::before{
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border: 10px dotted var(--hover-color);
+    border-radius: 50%;
+    animation: cercle 3s forwards infinite;
+    animation-duration: 60s;
+    z-index: -1;
+}
+@keyframes cercle{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
 .about{
     display: flex;
     justify-content: center;
@@ -433,6 +459,7 @@ section{
 }
 .service-box:hover{
     transform: translateY(-.7rem);
+    box-shadow: 0 0 20px var(--hover-color);
 }
 .service-icon{
     border: 2px solid var(--hover-color);
@@ -814,7 +841,7 @@ footer a i{
     :root{
         --big-font : 2.2rem;
         --normal-font : 1.8rem;
-        --mon-box-shadow : 0 0 .8rem #12f7ff;
+        --mon-box-shadow : 0 0 .5rem #f5a105;
         --h2-font : 3rem;
     }
     .home-content{
