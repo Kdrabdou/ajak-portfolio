@@ -240,7 +240,7 @@ section{
     margin-top: 6rem;
     display: flex;
     justify-content: space-between;
-    width: 250px;
+    width: 300px;
     height: 40px;
 }
 .social-icons a{
@@ -492,27 +492,35 @@ section{
     box-shadow: var(--mon-box-shadow);
 }
 .skill-bar .bar .html{
-    width: 50%;
+    width: 70%;
     animation: html 2s;
 }
-.skill-bar .bar .bootstrap{
+.skill-bar .bar .css{
     width: 60%;
-    animation: bootstrap 3S;
+    animation: css 3s;
+}
+.skill-bar .bar .bootstrap{
+    width: 55%;
+    animation: bootstrap 4S;
 }
 .skill-bar .bar .javascript{
     width: 40%;
-    animation: javascript 4s;
-}
-.skill-bar .bar .css{
-    width: 50%;
-    animation: css 5s;
+    animation: javascript 5s;
 }
 @keyframes html{
     0%{
         width: 0%;
     }
     100%{
-        width: 50%;
+        width: 70%;
+    }
+}
+@keyframes css{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
     }
 }
 @keyframes bootstrap{
@@ -520,7 +528,7 @@ section{
         width: 0%;
     }
     100%{
-        width: 60%;
+        width: 55%;
     }
 }
 @keyframes javascript{
@@ -529,14 +537,6 @@ section{
     }
     100%{
         width: 40%;
-    }
-}
-@keyframes css{
-    0%{
-        width: 0%;
-    }
-    100%{
-        width: 50%;
     }
 }
 
