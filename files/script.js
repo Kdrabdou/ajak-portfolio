@@ -72,9 +72,12 @@ window.addEventListener("scroll", activerMenu);
 
 
 const header = document.querySelector("header");
+const home = document.querySelector(".top");
 window.addEventListener("scroll", function(){
     header.classList.toggle("stricky", this.window.scrollY > 50);
+    home.classList.toggle("haut", this.window.scrollY > 50);
 });
+
 
 
 let menuIcoon = document.querySelector("#menu-icon");
