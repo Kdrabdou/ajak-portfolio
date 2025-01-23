@@ -346,7 +346,7 @@ section{
     max-width: 400px;
     height: auto;
     border: 5px solid var(--hover-color);
-    border-radius: 40px 40px 0 0;
+    border-radius: 40px;
     animation: profile2 3s infinite;
 }
 @keyframes profile2{
@@ -899,6 +899,7 @@ section{
 }
 .top:hover{
     box-shadow: var(--mon-box-shadow);
+    animation-play-state: paused;
 }
 @keyframes top-down{
     0%{

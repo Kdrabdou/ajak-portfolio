@@ -119,3 +119,28 @@ scrollTop.forEach((el)=>observer.observe(el));
 
 
 var mixer = mixitup('.portfolio-gallery');
+
+// traitement du formulaire pour la recuperration des messages
+
+emailjs.init("ocIC_JSOWrZ1F2FY8");
+document.getElementById('contact-form').addEventListener("submit", function(event){
+    event.preventDefault();
+
+    const formData = {
+        name : document.getElementById('name').value,
+        email : document.getElementById('email').value,
+        adress : document.getElementById('adress').value,
+        phone : document.getElementById('phone').value,
+        message : document.getElementById('message').value,
+    };
+
+    // envoie de message
+
+    emailjs.send("service_7f4vv2c", "template_aubq0ag", formData).then(() => {
+        alert('Message envoiyé avec succès');
+    }).catch((error) => {
+        console.error("Erreur lors de l'envoie du message : ", error);
+        alert('Une erreur s\'est produit. Veuillez ressayee !');
+    });
+});
+
