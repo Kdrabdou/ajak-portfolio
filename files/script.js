@@ -96,6 +96,7 @@ window.onscroll = () =>{
     menuIcoon.classList.remove("fa-times");
     menuIcoon.classList.add("fa-bars");
     navlist.classList.remove("open");
+    couleurContent.classList.remove('afficheclr');
 }
 
 const observer = new IntersectionObserver((entries)=>{
@@ -119,6 +120,25 @@ scrollTop.forEach((el)=>observer.observe(el));
 
 
 var mixer = mixitup('.portfolio-gallery');
+
+
+// gestion des couleur
+
+let btnCouleur = document.querySelector('.couleur'),
+    couleurContent = document.querySelector('.clrcontent'),
+    couleur1 = document.querySelector('.couleur1'),
+    couleur2 = document.querySelector('.couleur2'),
+    couleur3 = document.querySelector('.couleur3');
+
+btnCouleur.addEventListener('click', ()=>{
+    couleurContent.classList.toggle('afficheclr');
+});  
+function ChangerCouleur(color){
+    document.documentElement.style.setProperty('--hover-color', color);
+    document.documentElement.style.setProperty('--mon-box-shadow', '0 0 .5rem' + color);
+    btnCouleur.style.backgroundColor = color;
+    couleurContent.classList.remove('afficheclr');
+}
 
 // traitement du formulaire pour la recuperration des messages
 
