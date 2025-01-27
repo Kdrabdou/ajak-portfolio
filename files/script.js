@@ -138,7 +138,17 @@ function ChangerCouleur(color){
     document.documentElement.style.setProperty('--mon-box-shadow', '0 0 .5rem' + color);
     btnCouleur.style.backgroundColor = color;
     couleurContent.classList.remove('afficheclr');
+    localStorage.setItem("selcteColor", color);
 }
+window.onload = function(){
+    let saveColor = localStorage.getItem("selcteColor");
+    if(saveColor){
+        document.documentElement.style.setProperty('--hover-color',saveColor);
+        btnCouleur.style.backgroundColor = saveColor;
+        document.documentElement.style.setProperty('--mon-box-shadow', '0 0 .5rem' + saveColor);
+    }
+}
+
 
 // traitement du formulaire pour la recuperration des messages
 

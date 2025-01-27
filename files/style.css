@@ -847,6 +847,7 @@ section{
     width: 100%;
     padding: 10px 0;
     background-color: var(--bg-color);
+    display: block;
 }
 .footer .social{
     text-align: center;
