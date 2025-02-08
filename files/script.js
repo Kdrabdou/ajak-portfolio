@@ -153,7 +153,7 @@ window.onload = function(){
 // traitement du formulaire pour la recuperration des messages
 
 emailjs.init("ocIC_JSOWrZ1F2FY8");
-document.getElementById('contact-form').addEventListener("submit", function(event){
+document.getElementById("contact-form").addEventListener("submit", function(event){
     event.preventDefault();
 
     const formData = {
