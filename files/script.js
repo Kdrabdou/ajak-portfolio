@@ -165,12 +165,13 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     };
 
     // envoie de message
-
     emailjs.send("service_7f4vv2c", "template_aubq0ag", formData).then(() => {
-        alert('Message envoiyé avec succès');
+        alert(`Message envoyé avec succès par ${formData.email}`);
+        document.getElementById("contact-form").reset();
+        document.getElementById('email').value = formData.email;
     }).catch((error) => {
-        console.error("Erreur lors de l'envoie du message : ", error);
-        alert('Une erreur s\'est produit. Veuillez ressayee !');
+        console.error("Erreur lors de l'envoi du message : ", error);
+        alert('Une erreur s\'est produite. Veuillez réessayer !');
     });
 });
 
